@@ -1,2 +1,0 @@
-# vigneshwaranJ
-My portfolio
