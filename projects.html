@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ============================================================
+       META & SEO
+       ============================================================ -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | VIGNESHWARAN J — Cybersecurity Professional</title>
+    <meta name="description"
+        content="Explore cybersecurity and development projects by Vigneshwaran J — including Secure Admin Panel, Honeypot, Cryptography, and more." />
+    <meta name="author" content="Vigneshwaran J" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Main Stylesheet (shared) -->
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        /* ── Page-specific overrides ─────────────────────────────── */
+
+        /* Back button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            padding: 0.45rem 1rem;
+            border-radius: 6px;
+            transition: all var(--transition);
+            margin-bottom: 3rem;
+        }
+
+        .back-btn:hover {
+            color: var(--neon-green);
+            border-color: var(--neon-green);
+            background: var(--neon-dim);
+        }
+
+        /* Page hero banner */
+        .projects-hero {
+            padding: calc(var(--nav-h) + 4rem) 2rem 3rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .projects-hero-tag {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--neon-green);
+            opacity: 0.7;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .projects-hero h1 {
+            font-family: var(--font-mono);
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .projects-hero h1 span {
+            color: var(--neon-green);
+        }
+
+        .projects-hero-sub {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* ── Project Detail Card ────────────────────────────────── */
+        .project-detail-section {
+            padding: 0 0 6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-detail-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: border-color var(--transition), box-shadow var(--transition);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .project-detail-card:hover {
+            border-color: var(--border-hover);
+            box-shadow: 0 8px 50px rgba(0, 255, 157, 0.1);
+        }
+
+        .project-detail-card::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--neon-green), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .project-detail-card:hover::after {
+            opacity: 1;
+            animation: scanline 1.5s linear infinite;
+        }
+
+        @keyframes scanline {
+            0%   { top: -2px; }
+            100% { top: 102%; }
+        }
+
+        /* Card header */
+        .pdc-header {
+            padding: 2rem 2.5rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .pdc-icon-wrap {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(0,255,157,0.12), rgba(0,212,255,0.12));
+            border: 1px solid var(--border-color);
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .pdc-title-block { flex: 1; }
+
+        .pdc-number {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--neon-green);
+            letter-spacing: 0.15em;
+            margin-bottom: 0.3rem;
+            opacity: 0.8;
+        }
+
+        .pdc-title {
+            font-family: var(--font-mono);
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .pdc-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.5rem;
+        }
+
+        .pdc-tag {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            padding: 0.2rem 0.65rem;
+            border-radius: 999px;
+            background: var(--neon-dim);
+            color: var(--neon-green);
+            border: 1px solid rgba(0, 255, 157, 0.25);
+        }
+
+        .pdc-github-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            padding: 0.55rem 1.2rem;
+            border-radius: 8px;
+            transition: all var(--transition);
+            flex-shrink: 0;
+            align-self: center;
+        }
+
+        .pdc-github-btn:hover {
+            color: var(--neon-green);
+            border-color: var(--neon-green);
+            background: var(--neon-dim);
+            box-shadow: var(--glow-green);
+            transform: translateY(-2px);
+        }
+
+        /* Card body */
+        .pdc-body {
+            padding: 2rem 2.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .pdc-body { grid-template-columns: 1fr; }
+            .pdc-header { flex-direction: column; }
+        }
+
+        .pdc-desc-block h3 {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--neon-green);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .pdc-desc {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.85;
+        }
+
+        .pdc-features {
+            list-style: none;
+            margin-top: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+
+        .pdc-features li {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            line-height: 1.5;
+        }
+
+        .pdc-features li::before {
+            content: '▸';
+            color: var(--neon-green);
+            flex-shrink: 0;
+            margin-top: 0.05em;
+        }
+
+        /* ── PPT Viewer Section ─────────────────────────────────── */
+        .ppt-section {
+            padding: 0 0 6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ppt-section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ppt-section-header h2 {
+            font-family: var(--font-mono);
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+
+        .ppt-section-header h2 span {
+            color: var(--neon-green);
+        }
+
+        .section-divider {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--border-color), transparent);
+            min-width: 40px;
+        }
+
+        .ppt-viewer-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .ppt-viewer-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: rgba(0,0,0,0.3);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .ppt-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .ppt-dot.red   { background: #ff5f57; }
+        .ppt-dot.amber { background: #ffbd2e; }
+        .ppt-dot.green { background: #28c840; }
+
+        .ppt-viewer-label {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-left: 0.4rem;
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .ppt-download-link {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--neon-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: color var(--transition);
+            flex-shrink: 0;
+        }
+
+        .ppt-download-link:hover { color: var(--neon-green); }
+
+        /* 16:9 responsive iframe */
+        .ppt-frame-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .ppt-frame-container iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Fallback */
+        .ppt-fallback {
+            display: none;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .ppt-fallback-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+        .ppt-fallback-title {
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .ppt-fallback-note {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        /* ── Coming Soon card ───────────────────────────────────── */
+        .more-projects-section {
+            padding: 0 0 6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .coming-soon-card {
+            border: 1px dashed var(--border-color);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            background: transparent;
+        }
+
+        .coming-soon-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+
+        .coming-soon-title {
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .coming-soon-sub {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ── Ambient glows ──────────────────────────────────────── */
+        .page-glow {
+            position: fixed;
+            top: 20%;
+            right: -200px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0,255,157,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page-glow-2 {
+            position: fixed;
+            bottom: 10%;
+            left: -150px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(0,212,255,0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div id="cursor" aria-hidden="true"></div>
+    <div id="cursor-trail" aria-hidden="true"></div>
+
+    <!-- Matrix Canvas -->
+    <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+
+    <!-- Ambient glows -->
+    <div class="page-glow" aria-hidden="true"></div>
+    <div class="page-glow-2" aria-hidden="true"></div>
+
+    <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="VJ Home">
+                <span class="logo-bracket">[</span>
+                <span class="logo-text">VJ</span>
+                <span class="logo-bracket">]</span>
+            </a>
+
+            <ul class="nav-links" role="list">
+                <li><a href="index.html#hero"    class="nav-link">_home</a></li>
+                <li><a href="index.html#about"   class="nav-link">_about</a></li>
+                <li><a href="index.html#skills"  class="nav-link">_skills</a></li>
+                <li><a href="projects.html"      class="nav-link active">_projects</a></li>
+                <li><a href="index.html#connect" class="nav-link">_connect</a></li>
+            </ul>
+
+            <button id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">
+                <span id="theme-icon">☀️</span>
+            </button>
+
+            <button id="hamburger" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+
+        <div id="mobile-menu" role="dialog" aria-label="Mobile navigation" aria-hidden="true">
+            <ul role="list">
+                <li><a href="index.html#hero"    class="mobile-link">_home</a></li>
+                <li><a href="index.html#about"   class="mobile-link">_about</a></li>
+                <li><a href="index.html#skills"  class="mobile-link">_skills</a></li>
+                <li><a href="projects.html"      class="mobile-link">_projects</a></li>
+                <li><a href="index.html#connect" class="mobile-link">_connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+       PAGE HERO
+       ============================================================ -->
+    <header class="projects-hero reveal-section" aria-label="Projects page header">
+        <p class="projects-hero-tag">// portfolio / projects</p>
+        <h1><span>&lt;</span>projects.log<span>/&gt;</span></h1>
+        <p class="projects-hero-sub">/* Cybersecurity research &amp; development work */</p>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <!-- Back link -->
+            <a href="index.html" class="back-btn" id="back-to-portfolio">
+                ← back_to_portfolio()
+            </a>
+
+            <!-- ====================================================
+               PROJECT 01: SECURE ADMIN PANEL
+               ==================================================== -->
+            <section class="project-detail-section reveal-section" aria-label="Secure Admin Panel project">
+
+                <article class="project-detail-card" id="secure-admin-panel">
+
+                    <!-- Header row -->
+                    <div class="pdc-header">
+                        <div class="pdc-icon-wrap" aria-hidden="true">🔒</div>
+
+                        <div class="pdc-title-block">
+                            <p class="pdc-number">// project_01</p>
+                            <h2 class="pdc-title">Secure Admin Panel</h2>
+                            <div class="pdc-tags">
+                                <span class="pdc-tag">Web Security</span>
+                                <span class="pdc-tag">Authentication</span>
+                                <span class="pdc-tag">Admin Dashboard</span>
+                                <span class="pdc-tag">Full-Stack</span>
+                                <span class="pdc-tag">Python</span>
+                            </div>
+                        </div>
+
+                        <a href="https://github.com/VigneshwaranJ-commits/Secure_Admin_Panel.git"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="pdc-github-btn"
+                           id="secure-admin-github-link"
+                           aria-label="View Secure Admin Panel on GitHub">
+                            <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                            View on GitHub
+                        </a>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="pdc-body">
+                        <div class="pdc-desc-block">
+                            <h3>// overview</h3>
+                            <p class="pdc-desc">
+                                A hardened web-based administration panel built with security-first principles.
+                                Implements robust authentication mechanisms, role-based access control, and
+                                protection against common web vulnerabilities such as SQL injection, XSS, and CSRF
+                                — making it a practical reference for secure web development practices.
+                            </p>
+                        </div>
+
+                        <div class="pdc-desc-block">
+                            <h3>// key_features</h3>
+                            <ul class="pdc-features">
+                                <li>Multi-factor authentication with session hardening</li>
+                                <li>Role-based access control (RBAC) system</li>
+                                <li>SQL injection &amp; XSS mitigation layers</li>
+                                <li>CSRF token protection on all state-changing forms</li>
+                                <li>Audit logging &amp; anomaly detection hooks</li>
+                                <li>Secure password hashing with bcrypt / Argon2</li>
+                                <li>Penetration-tested security hardening checklist</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </article>
+            </section>
+
+            <!-- ====================================================
+               PPT VIEWER
+               ==================================================== -->
+            <section class="ppt-section reveal-section" aria-label="Project presentation">
+
+                <div class="ppt-section-header">
+                    <h2><span>// </span>project_presentation.pptx</h2>
+                    <div class="section-divider" aria-hidden="true"></div>
+                </div>
+
+                <div class="ppt-viewer-wrapper" id="ppt-viewer-wrapper">
+
+                    <!-- Terminal title bar -->
+                    <div class="ppt-viewer-bar" aria-hidden="true">
+                        <span class="ppt-dot red"></span>
+                        <span class="ppt-dot amber"></span>
+                        <span class="ppt-dot green"></span>
+                        <span class="ppt-viewer-label">Secure admin panel.pptx — presentation viewer</span>
+                        <a href="ppts/Secure admin panel.pptx"
+                           download="Secure_Admin_Panel.pptx"
+                           class="ppt-download-link"
+                           aria-label="Download presentation">
+                            ↓ download.pptx
+                        </a>
+                    </div>
+
+                    <!-- 16:9 iframe (populated by JS) -->
+                    <div class="ppt-frame-container" id="ppt-frame-container">
+                        <iframe
+                            id="ppt-iframe"
+                            src="about:blank"
+                            allowfullscreen
+                            title="Secure Admin Panel Presentation Viewer"
+                            aria-label="Slide viewer for Secure Admin Panel">
+                        </iframe>
+                    </div>
+
+                    <!-- Fallback shown when running locally -->
+                    <div class="ppt-fallback" id="ppt-fallback" role="region" aria-label="Presentation download option">
+                        <div class="ppt-fallback-icon">📊</div>
+                        <p class="ppt-fallback-title">// presentation_viewer</p>
+                        <p class="ppt-fallback-note">
+                            The live slide viewer works when the portfolio is hosted online.<br />
+                            Download the full presentation using the button below.
+                        </p>
+                        <a href="ppts/Secure admin panel.pptx"
+                           download="Secure_Admin_Panel.pptx"
+                           class="btn btn-primary"
+                           id="ppt-download-btn"
+                           aria-label="Download Secure Admin Panel presentation">
+                            <span class="btn-prefix">$</span> download_presentation()
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ====================================================
+               MORE PROJECTS — Coming Soon
+               ==================================================== -->
+            <section class="more-projects-section reveal-section" aria-label="More projects">
+
+                <div class="ppt-section-header">
+                    <h2><span>// </span>more_projects</h2>
+                    <div class="section-divider" aria-hidden="true"></div>
+                </div>
+
+                <div class="coming-soon-card">
+                    <div class="coming-soon-icon">⚙️</div>
+                    <p class="coming-soon-title">// more_projects_loading...</p>
+                    <p class="coming-soon-sub">
+                        Honeypot &nbsp;·&nbsp; Cryptography &nbsp;·&nbsp; Privilege Escalation
+                        &nbsp;— coming soon with full write-ups &amp; slides.
+                    </p>
+                </div>
+
+            </section>
+
+        </div><!-- /.container -->
+    </main>
+
+    <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+    <footer id="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-top">
+                <span class="footer-logo">
+                    <span class="logo-bracket">[</span>VJ<span class="logo-bracket">]</span>
+                </span>
+                <div class="footer-links">
+                    <a href="https://github.com/VigneshwaranJ-commits" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
+                    <a href="https://www.linkedin.com/in/vigneshwaran1808/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 <span class="highlight">Vigneshwaran J</span>. All rights reserved.</p>
+                <p class="footer-credit">Built with <span class="heart">❤️</span> and lots of <span class="coffee">☕</span> coffee</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="copy-toast" role="alert" aria-live="assertive" aria-hidden="true">
+        ✓ Copied to clipboard!
+    </div>
+
+    <!-- Shared script (matrix, cursor, theme toggle, hamburger) -->
+    <script src="script.js"></script>
+
+    <script>
+        /* ─── PPT Viewer ─────────────────────────────────────────── */
+        (function () {
+            var iframe      = document.getElementById('ppt-iframe');
+            var fallback    = document.getElementById('ppt-fallback');
+            var frameWrap   = document.getElementById('ppt-frame-container');
+            var isHosted    = (location.protocol === 'http:' || location.protocol === 'https:');
+
+            if (isHosted) {
+                /* Build absolute URL then pass to Google Docs viewer */
+                var base    = location.href.replace(/\/[^/]*$/, '/');
+                var pptPath = base + 'ppts/Secure%20admin%20panel.pptx';
+                var viewer  = 'https://docs.google.com/viewer?url=' + encodeURIComponent(pptPath) + '&embedded=true';
+                iframe.src  = viewer;
+            } else {
+                /* Local file:// — hide iframe, show friendly download */
+                frameWrap.style.display = 'none';
+                fallback.style.display  = 'block';
+            }
+        })();
+
+        /* ─── Scroll reveal (sections) ───────────────────────────── */
+        (function () {
+            var items = document.querySelectorAll('.reveal-section');
+            var obs   = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('visible');
+                        obs.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.08 });
+            items.forEach(function (el) { obs.observe(el); });
+        })();
+    </script>
+
+</body>
+</html>
