@@ -1290,3 +1290,59 @@ footer {
 
   #cursor, #cursor-trail { display: none; }
 }
+
+/* ----------------------------------------------------------------
+   19. PROJECTS CTA (Explore Button)
+   ---------------------------------------------------------------- */
+.projects-cta-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(0,255,157,0.04) 0%, rgba(0,212,255,0.04) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-cta-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(0,255,157,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.projects-cta-desc {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 520px;
+  line-height: 1.8;
+}
+
+.explore-btn {
+  font-size: 1rem;
+  padding: 0.9rem 2.2rem;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.03em;
+}
+
+.explore-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+.explore-arrow {
+  font-size: 1.1rem;
+  transition: transform var(--transition);
+}
+
+.explore-btn:hover .explore-arrow {
+  transform: translateX(5px);
+}
+
