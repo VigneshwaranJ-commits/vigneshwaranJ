@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects | VIGNESHWARAN J — Cybersecurity Professional</title>
     <meta name="description"
-        content="Explore cybersecurity and development projects by Vigneshwaran J — including Secure Admin Panel, Honeypot, Cryptography, and more." />
+        content="Explore cybersecurity and development projects by Vigneshwaran J — including Secure Admin Panel, Linux Privilege Escalation, and more." />
     <meta name="author" content="Vigneshwaran J" />
 
     <!-- Google Fonts -->
@@ -633,6 +633,133 @@
             </section>
 
             <!-- ====================================================
+               PROJECT 02: LINUX PRIVILEGE ESCALATION
+               ==================================================== -->
+            <section class="project-detail-section reveal-section" aria-label="Linux Privilege Escalation project">
+
+                <article class="project-detail-card" id="linux-privilege-escalation">
+
+                    <!-- Header row -->
+                    <div class="pdc-header">
+                        <div class="pdc-icon-wrap" aria-hidden="true">🐧</div>
+
+                        <div class="pdc-title-block">
+                            <p class="pdc-number">// project_02</p>
+                            <h2 class="pdc-title">Linux Privilege Escalation Demonstration Platform</h2>
+                            <div class="pdc-tags">
+                                <span class="pdc-tag">Linux Security</span>
+                                <span class="pdc-tag">Privilege Escalation</span>
+                                <span class="pdc-tag">Python Flask</span>
+                                <span class="pdc-tag">Bash Scripting</span>
+                                <span class="pdc-tag">SUID / Sudo Auditing</span>
+                                <span class="pdc-tag">MySQL</span>
+                            </div>
+                        </div>
+
+                        <a href="https://github.com/VigneshwaranJ-commits/PrivilegeEsculation.git"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="pdc-github-btn"
+                           id="linux-privesc-github-link"
+                           aria-label="View Linux Privilege Escalation on GitHub">
+                            <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                            View on GitHub
+                        </a>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="pdc-body">
+                        <div class="pdc-desc-block">
+                            <h3>// overview</h3>
+                            <p class="pdc-desc">
+                                A web platform to download and run Linux privilege-escalation enumeration scripts,
+                                helping system administrators audit and harden security posture. Many Linux systems run
+                                with weak file permissions, misconfigured SUID binaries, and risky sudo rules — gaps
+                                attackers leverage to escalate from a low-privilege user to root. This platform lets
+                                administrators safely demonstrate attack vectors and clearly see exploitable
+                                misconfigurations to remediate vulnerabilities before exploitation.
+                            </p>
+                        </div>
+
+                        <div class="pdc-desc-block">
+                            <h3>// key_features</h3>
+                            <ul class="pdc-features">
+                                <li>Python Flask backend delivering enumeration scripts &amp; managing requests</li>
+                                <li>Automated detection of misconfigured SUID / SGID binaries</li>
+                                <li>Auditing of weak or risky sudo permissions &amp; passwordless execution</li>
+                                <li>Identification of world-writable sensitive files and directories</li>
+                                <li>Detection of cron jobs configured with insecure file permissions</li>
+                                <li>Exploitable PATH and environment variable hijacking analysis</li>
+                                <li>Linux kernel version identification &amp; known exploit exposure check</li>
+                                <li>MySQL database storing user/script records and system access logs</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </article>
+            </section>
+
+            <!-- ====================================================
+               PPT VIEWER — LINUX PRIVILEGE ESCALATION
+               ==================================================== -->
+            <section class="ppt-section reveal-section" aria-label="Linux Privilege Escalation project presentation">
+
+                <div class="ppt-section-header">
+                    <h2><span>// </span>linux_privilege_escalation.pptx</h2>
+                    <div class="section-divider" aria-hidden="true"></div>
+                </div>
+
+                <div class="ppt-viewer-wrapper" id="linux-privesc-ppt-viewer-wrapper">
+
+                    <!-- Terminal title bar -->
+                    <div class="ppt-viewer-bar" aria-hidden="true">
+                        <span class="ppt-dot red"></span>
+                        <span class="ppt-dot amber"></span>
+                        <span class="ppt-dot green"></span>
+                        <span class="ppt-viewer-label">Linux Privilege Escalation Demonstration Platform.pptx — presentation viewer</span>
+                        <a href="ppts/Linux Privilege Escalation Demonstration Platform.pptx"
+                           download="Linux_Privilege_Escalation.pptx"
+                           class="ppt-download-link"
+                           aria-label="Download Linux Privilege Escalation presentation">
+                            ↓ download.pptx
+                        </a>
+                    </div>
+
+                    <!-- 16:9 iframe (populated by JS) -->
+                    <div class="ppt-frame-container" id="linux-privesc-ppt-frame-container">
+                        <iframe
+                            id="linux-privesc-ppt-iframe"
+                            src="about:blank"
+                            allowfullscreen
+                            title="Linux Privilege Escalation Presentation Viewer"
+                            aria-label="Slide viewer for Linux Privilege Escalation Demonstration Platform">
+                        </iframe>
+                    </div>
+
+                    <!-- Fallback shown when running locally -->
+                    <div class="ppt-fallback" id="linux-privesc-ppt-fallback" role="region" aria-label="Linux Privilege Escalation presentation download option">
+                        <div class="ppt-fallback-icon">📊</div>
+                        <p class="ppt-fallback-title">// presentation_viewer</p>
+                        <p class="ppt-fallback-note">
+                            The live slide viewer works when the portfolio is hosted online.<br />
+                            Download the full presentation using the button below.
+                        </p>
+                        <a href="ppts/Linux Privilege Escalation Demonstration Platform.pptx"
+                           download="Linux_Privilege_Escalation.pptx"
+                           class="btn btn-primary"
+                           id="linux-privesc-ppt-download-btn"
+                           aria-label="Download Linux Privilege Escalation presentation">
+                            <span class="btn-prefix">$</span> download_presentation()
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- ====================================================
                MORE PROJECTS — Coming Soon
                ==================================================== -->
             <section class="more-projects-section reveal-section" aria-label="More projects">
@@ -646,7 +773,7 @@
                     <div class="coming-soon-icon">⚙️</div>
                     <p class="coming-soon-title">// more_projects_loading...</p>
                     <p class="coming-soon-sub">
-                        Honeypot &nbsp;·&nbsp; Cryptography &nbsp;·&nbsp; Privilege Escalation
+                        Cryptography &nbsp;·&nbsp; Threat Intelligence &nbsp;·&nbsp; Network Traffic Analyzer
                         &nbsp;— coming soon with full write-ups &amp; slides.
                     </p>
                 </div>
@@ -685,7 +812,7 @@
     <script src="script.js"></script>
 
     <script>
-        /* ─── PPT Viewer ─────────────────────────────────────────── */
+        /* ─── PPT Viewer: Secure Admin Panel ────────────────────── */
         (function () {
             var iframe      = document.getElementById('ppt-iframe');
             var fallback    = document.getElementById('ppt-fallback');
@@ -700,6 +827,24 @@
                 iframe.src  = viewer;
             } else {
                 /* Local file:// — hide iframe, show friendly download */
+                frameWrap.style.display = 'none';
+                fallback.style.display  = 'block';
+            }
+        })();
+
+        /* ─── PPT Viewer: Linux Privilege Escalation ─────────────── */
+        (function () {
+            var iframe      = document.getElementById('linux-privesc-ppt-iframe');
+            var fallback    = document.getElementById('linux-privesc-ppt-fallback');
+            var frameWrap   = document.getElementById('linux-privesc-ppt-frame-container');
+            var isHosted    = (location.protocol === 'http:' || location.protocol === 'https:');
+
+            if (isHosted) {
+                var base    = location.href.replace(/\/[^/]*$/, '/');
+                var pptPath = base + 'ppts/Linux%20Privilege%20Escalation%20Demonstration%20Platform.pptx';
+                var viewer  = 'https://docs.google.com/viewer?url=' + encodeURIComponent(pptPath) + '&embedded=true';
+                iframe.src  = viewer;
+            } else {
                 frameWrap.style.display = 'none';
                 fallback.style.display  = 'block';
             }
